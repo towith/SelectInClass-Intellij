@@ -319,6 +319,9 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
   <component name="hg4idea.settings">
     <option name="CHECK_INCOMING_OUTGOING" value="false" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
