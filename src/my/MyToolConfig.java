@@ -20,7 +20,9 @@ import javax.swing.*;
 /**
  * Created by yinghao_niu on 2016/12/12 for freecmdSelectIn.
  */
-public class MyToolConfig implements ApplicationComponent, ProjectComponent, Configurable {
+public class MyToolConfig implements
+        ApplicationComponent,
+        ProjectComponent, Configurable {
     static String toolPath;
     ToolSetting settingPanel;
     private final Storage storage = ServiceManager.getService(Storage.class);
@@ -68,6 +70,12 @@ public class MyToolConfig implements ApplicationComponent, ProjectComponent, Con
     }
 
     @Override
+    /**
+     *    compile output dir
+     *   CompilerModuleExtension.getInstance(ModuleUtilCore.findModuleForFile(anActionEvent.getData(CommonDataKeys.VIRTUAL_FILE),
+     anActionEvent.getProject()))
+     .getCompilerOutputPath()
+     */
     public void projectOpened() {
         Project[] openProjects = ProjectManagerImpl.getInstanceEx().getOpenProjects();
         for (Project openProject : openProjects) {
@@ -88,10 +96,6 @@ public class MyToolConfig implements ApplicationComponent, ProjectComponent, Con
         return toolPath;
     }
 
-    public static void setToolPath(String toolPath) {
-        MyToolConfig.toolPath = toolPath;
-    }
-
     @Override
     @NotNull
     public String getComponentName() {
@@ -108,5 +112,9 @@ public class MyToolConfig implements ApplicationComponent, ProjectComponent, Con
     @Override
     public String getHelpTopic() {
         return "YYY";
+    }
+
+    public static void setToolPath(String toolPath) {
+        MyToolConfig.toolPath = toolPath;
     }
 }

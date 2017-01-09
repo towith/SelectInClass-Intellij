@@ -28,7 +28,7 @@
         <!-- Add your extensions here -->
         <applicationService serviceImplementation="my.Storage"/>
         <applicationConfigurable instance="my.MyToolConfig"/>
-        <projectConfigurable instance="my.MyToolConfig"/>
+        <!--<projectConfigurable instance="my.MyToolConfig"/>-->
     </extensions>
 
     <actions>
@@ -41,11 +41,11 @@
         </group>
 
     </actions>
-    <application-components>
-        <component>
-            <implementation-class>my.MyToolConfig</implementation-class>
-        </component>
-    </application-components>
+    <!--<application-components>-->
+        <!--<component>-->
+            <!--<implementation-class>my.MyToolConfig</implementation-class>-->
+        <!--</component>-->
+    <!--</application-components>-->
     <project-components>
         <component>
             <implementation-class>my.MyToolConfig</implementation-class>
