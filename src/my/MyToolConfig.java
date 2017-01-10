@@ -70,12 +70,6 @@ public class MyToolConfig implements
     }
 
     @Override
-    /**
-     *    compile output dir
-     *   CompilerModuleExtension.getInstance(ModuleUtilCore.findModuleForFile(anActionEvent.getData(CommonDataKeys.VIRTUAL_FILE),
-     anActionEvent.getProject()))
-     .getCompilerOutputPath()
-     */
     public void projectOpened() {
         Project[] openProjects = ProjectManagerImpl.getInstanceEx().getOpenProjects();
         for (Project openProject : openProjects) {
