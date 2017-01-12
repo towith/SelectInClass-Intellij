@@ -7,10 +7,7 @@ import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.options.Configurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.project.ProjectManager;
-import com.intellij.openapi.project.ex.ProjectManagerEx;
 import com.intellij.openapi.project.impl.ProjectManagerImpl;
-import com.intellij.openapi.roots.ProjectRootManager;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,6 +23,8 @@ public class MyToolConfig implements
     static String toolPath;
     ToolSetting settingPanel;
     private final Storage storage = ServiceManager.getService(Storage.class);
+    static boolean mySelectInAdded = false;
+    static boolean compileSelectInAdded = false;
 
     public MyToolConfig() {
     }
@@ -75,8 +74,10 @@ public class MyToolConfig implements
         for (Project openProject : openProjects) {
             if (openProject.isOpen()) {
                 SelectInManager selectInManager = SelectInManager.getInstance(openProject);
-                MySelectInTarget target = new MySelectInTarget();
-                selectInManager.addTarget(target);
+                    MySelectInTarget target = new MySelectInTarget();
+                    selectInManager.addTarget(target);
+                    CompileOutputSelectInTarget compileOutputSelectInTarget = new CompileOutputSelectInTarget();
+                    selectInManager.addTarget(compileOutputSelectInTarget);
             }
         }
     }
