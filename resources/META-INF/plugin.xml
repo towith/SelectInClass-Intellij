@@ -29,6 +29,9 @@
         <applicationService serviceImplementation="my.Storage"/>
         <applicationConfigurable instance="my.MyToolConfig"/>
         <!--<projectConfigurable instance="my.MyToolConfig"/>-->
+            <toolWindow id="Action set" secondary="true" icon="" anchor="right"
+                        factoryClass="my.MyToolWindow"/>
+
     </extensions>
 
     <actions>
