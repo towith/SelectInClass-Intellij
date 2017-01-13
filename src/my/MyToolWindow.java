@@ -15,7 +15,6 @@ import javafx.scene.web.WebView;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -27,11 +26,11 @@ public class MyToolWindow implements ToolWindowFactory {
     private JFXPanel JFXPanel1;
     private JTextField textField1;
     ToolWindow toolWindow;
-    WebEngine eng;
-    Scene scene;
-    Group root;
-    VBox box;
-    WebView webView;
+    static WebEngine eng;
+    static Scene scene;
+    static Group root;
+    static VBox box;
+    static WebView webView;
 
     public MyToolWindow() {
 
@@ -43,27 +42,19 @@ public class MyToolWindow implements ToolWindowFactory {
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         Content content = contentFactory.createContent(myToolWindowContent, "", false);
         toolWindow.getContentManager().addContent(content);
-        toolWindow.activate(new Runnable() {
-            @Override
-            public void run() {
-                drawContent();
-            }
-        });
+        drawContent();
     }
 
     private void drawContent() {
         Platform.runLater(new Runnable() {
-
             @Override
             public void run() {
-                root = new Group();
-                scene = new Scene(root);
-                JFXPanel1.setScene(scene);
-                box = new VBox(10);
                 webView = new WebView();
                 eng = webView.getEngine();
-                box.getChildren().add(webView);
-                root.getChildren().add(box);
+                root = new Group();
+                root.getChildren().add(webView);
+                scene = new Scene(root);
+                JFXPanel1.setScene(scene);
             }
         });
 
@@ -76,7 +67,12 @@ public class MyToolWindow implements ToolWindowFactory {
                         Runnable runnable = new Runnable() {
                             @Override
                             public void run() {
-                                eng.load(text.trim());
+                                JFXPanel1.show();
+                                JFXPanel1.repaint();
+                                WebView.class.cast(JFXPanel1.getScene().getRoot().getChildrenUnmodifiable().get(0))
+                                        .getEngine()
+                                        .load(text.trim());
+                                JFXPanel1.show();
                             }
                         };
                         Platform.runLater(runnable);
