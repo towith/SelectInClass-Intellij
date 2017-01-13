@@ -67,12 +67,7 @@ public class MyToolWindow implements ToolWindowFactory {
                         Runnable runnable = new Runnable() {
                             @Override
                             public void run() {
-                                JFXPanel1.show();
-                                JFXPanel1.repaint();
-                                WebView.class.cast(JFXPanel1.getScene().getRoot().getChildrenUnmodifiable().get(0))
-                                        .getEngine()
-                                        .load(text.trim());
-                                JFXPanel1.show();
+                                eng.load(text.trim());
                             }
                         };
                         Platform.runLater(runnable);
