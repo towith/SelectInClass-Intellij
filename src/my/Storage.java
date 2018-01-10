@@ -25,13 +25,22 @@ public class Storage implements PersistentStateComponent<Storage> {
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    String path;
+    String fmPath;
+    String prefixPath;
 
-    public String getPath() {
-        return path;
+    public String getPrefixPath() {
+        return prefixPath;
     }
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setPrefixPath(String prefixPath) {
+        this.prefixPath = prefixPath;
+    }
+
+    public String getFmPath() {
+        return fmPath;
+    }
+
+    public void setFmPath(String fmPath) {
+        this.fmPath = fmPath;
     }
 }

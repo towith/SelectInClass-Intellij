@@ -35,13 +35,23 @@ public class CompileOutputSelectInTarget implements SelectInTarget {
                 virtualFile,
                 selectInContext.getProject()));
         String path = module.getCompilerOutputUrl();
+        if (path == null) {
+            return ;
+        }
         path = path.replaceFirst("file://", "");
         path = path.replaceAll("/", "\\\\");
-        String qualifiedName = PsiClass.class.cast(selectInContext.getSelectorInFile()).getQualifiedName();
+            String qualifiedName = PsiClass.class.cast(selectInContext.getSelectorInFile()).getQualifiedName();
+
         path = path + File.separator + qualifiedName.replaceAll("\\.", "\\\\") + ".class";
         ProjectPaneSelectInTarget projectPaneSelectInTarget = new ProjectPaneSelectInTarget(selectInContext.getProject());
         FileSelectInContext fileSelectInContext = new FileSelectInContext(selectInContext.getProject(),
                 LocalFileSystem.getInstance().findFileByIoFile(new File(path)));
         projectPaneSelectInTarget.selectIn(fileSelectInContext, true);
+    }
+
+
+    @Override
+    public String toString() {
+        return "MySelectInTarget-Class";
     }
 }

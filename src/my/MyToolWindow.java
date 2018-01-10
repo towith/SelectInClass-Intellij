@@ -12,6 +12,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -55,6 +57,10 @@ public class MyToolWindow implements ToolWindowFactory {
                 root.getChildren().add(webView);
                 scene = new Scene(root);
                 JFXPanel1.setScene(scene);
+                JFXPanel1.show();
+//                Stage stage = new Stage(StageStyle.UTILITY);
+//                stage.setScene(scene);
+//                stage.show();
             }
         });
 

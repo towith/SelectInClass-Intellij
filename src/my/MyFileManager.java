@@ -1,6 +1,7 @@
 package my;
 
 import com.intellij.ide.SelectInManager;
+import com.intellij.ide.SelectInTarget;
 import com.intellij.openapi.components.ApplicationComponent;
 import com.intellij.openapi.components.ProjectComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -17,16 +18,21 @@ import javax.swing.*;
 /**
  * Created by yinghao_niu on 2016/12/12 for freecmdSelectIn.
  */
-public class MyToolConfig implements
+public class MyFileManager extends JPanel implements
         ApplicationComponent,
         ProjectComponent, Configurable {
     static String toolPath;
-    ToolSetting settingPanel;
+    static String prefixPath;
+    private JTextField textField1;
+    private JTextField textField2;
     private final Storage storage = ServiceManager.getService(Storage.class);
-    static boolean mySelectInAdded = false;
-    static boolean compileSelectInAdded = false;
 
-    public MyToolConfig() {
+    public JTextField getTextField2() {
+        return textField2;
+    }
+
+    public MyFileManager() {
+
     }
 
     @Override
@@ -42,14 +48,12 @@ public class MyToolConfig implements
     @Nullable
     @Override
     public JComponent createComponent() {
-        this.settingPanel = new ToolSetting();
-        settingPanel.add(new JLabel("path:"));
-        JTextField textField1 = new JTextField();
-        textField1.setText(storage.getPath());
-        this.settingPanel.setTextField1(textField1);
-        settingPanel.add(this.settingPanel.getTextField1());
+        textField1.setText(storage.getFmPath() == null ? "FreeCommander.exe" : storage.getFmPath());
+        textField2.setText(storage.getPrefixPath());
+
         toolPath = textField1.getText();
-        return settingPanel;
+        prefixPath = textField2.getText();
+        return this;
     }
 
     @Override
@@ -59,8 +63,8 @@ public class MyToolConfig implements
 
     @Override
     public void apply() throws ConfigurationException {
-        toolPath = this.settingPanel.getTextField1().getText();
-        storage.setPath(toolPath);
+        toolPath = textField1.getText();
+        storage.setFmPath(toolPath);
     }
 
     @Override
@@ -74,12 +78,29 @@ public class MyToolConfig implements
         for (Project openProject : openProjects) {
             if (openProject.isOpen()) {
                 SelectInManager selectInManager = SelectInManager.getInstance(openProject);
-                    MySelectInTarget target = new MySelectInTarget();
+                MySelectInTarget target = new MySelectInTarget();
+                selectInManager.addTarget(target);
+                if (existTarget(selectInManager, target)) {
+                }else{
                     selectInManager.addTarget(target);
-                    CompileOutputSelectInTarget compileOutputSelectInTarget = new CompileOutputSelectInTarget();
-                    selectInManager.addTarget(compileOutputSelectInTarget);
+                }
+                CompileOutputSelectInTarget compileOutputSelectInTarget = new CompileOutputSelectInTarget();
+                if (existTarget(selectInManager, compileOutputSelectInTarget)) {
+                }else{
+                selectInManager.addTarget(compileOutputSelectInTarget);
             }
         }
+    }
+    }
+
+    private boolean existTarget(SelectInManager selectInManager, SelectInTarget target) {
+        SelectInTarget[] targets = selectInManager.getTargets();
+        for (SelectInTarget selectInTarget : targets) {
+            if (selectInTarget.toString().equals(target.toString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -97,6 +118,18 @@ public class MyToolConfig implements
         return "XXX";
     }
 
+    public JTextField getTextField1() {
+        return textField1;
+    }
+
+    public void setTextField1(JTextField textField1) {
+        this.textField1 = textField1;
+    }
+
+    public void setTextField2(JTextField textField2) {
+        this.textField2 = textField2;
+    }
+
     @Nls
     @Override
     public String getDisplayName() {
@@ -110,6 +143,6 @@ public class MyToolConfig implements
     }
 
     public static void setToolPath(String toolPath) {
-        MyToolConfig.toolPath = toolPath;
+        MyFileManager.toolPath = toolPath;
     }
 }

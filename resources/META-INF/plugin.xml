@@ -27,9 +27,9 @@
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
         <applicationService serviceImplementation="my.Storage"/>
-        <applicationConfigurable instance="my.MyToolConfig"/>
-        <!--<projectConfigurable instance="my.MyToolConfig"/>-->
-            <toolWindow id="Action set" secondary="true" icon="" anchor="right"
+        <applicationConfigurable instance="my.MyFileManager"/>
+        <!--<projectConfigurable instance="my.ToolSetting"/>-->
+            <toolWindow id="bejoy" secondary="true" icon="" anchor="right"
                         factoryClass="my.MyToolWindow"/>
 
     </extensions>
@@ -46,12 +46,12 @@
     </actions>
     <!--<application-components>-->
         <!--<component>-->
-            <!--<implementation-class>my.MyToolConfig</implementation-class>-->
+            <!--<implementation-class>my.ToolSetting</implementation-class>-->
         <!--</component>-->
     <!--</application-components>-->
     <project-components>
         <component>
-            <implementation-class>my.MyToolConfig</implementation-class>
+            <implementation-class>my.MyFileManager</implementation-class>
         </component>
     </project-components>
 

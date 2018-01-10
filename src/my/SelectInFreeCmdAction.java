@@ -12,13 +12,13 @@ import java.io.IOException;
 public class SelectInFreeCmdAction extends AnAction {
     @Override
     public void update(AnActionEvent e) {
-        e.getPresentation().setEnabledAndVisible(MyToolConfig.toolPath != null && !MyToolConfig.toolPath.equals(""));
+        e.getPresentation().setEnabledAndVisible(MyFileManager.toolPath != null && !MyFileManager.toolPath.equals(""));
     }
 
     @Override
     public void actionPerformed(AnActionEvent anActionEvent) {
         String path = anActionEvent.getDataContext().getData(CommonDataKeys.VIRTUAL_FILE).getPath();
-        ProcessBuilder freecmd = new ProcessBuilder(MyToolConfig.toolPath, path);
+        ProcessBuilder freecmd = new ProcessBuilder(MyFileManager.toolPath, path);
         try {
             freecmd.start();
         } catch (IOException e) {
