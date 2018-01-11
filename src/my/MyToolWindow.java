@@ -12,8 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -61,13 +59,19 @@ public class MyToolWindow implements ToolWindowFactory {
 //                Stage stage = new Stage(StageStyle.UTILITY);
 //                stage.setScene(scene);
 //                stage.show();
+
             }
         });
 
         textField1.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER)
+                {
+                    JFXPanel1.revalidate();
+                    JFXPanel1.show();
+                    JFXPanel1.revalidate();
+
                     final String text = textField1.getText();
                     if (text != null) {
                         Runnable runnable = new Runnable() {
@@ -85,19 +89,4 @@ public class MyToolWindow implements ToolWindowFactory {
 
     }
 
-    public ToolWindow getToolWindow() {
-        return toolWindow;
-    }
-
-    public JPanel getMyToolWindowContent() {
-        return myToolWindowContent;
-    }
-
-    public void setToolWindow(ToolWindow toolWindow) {
-        this.toolWindow = toolWindow;
-    }
-
-    public void setMyToolWindowContent(JPanel myToolWindowContent) {
-        this.myToolWindowContent = myToolWindowContent;
-    }
 }

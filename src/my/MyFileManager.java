@@ -18,18 +18,16 @@ import javax.swing.*;
 /**
  * Created by yinghao_niu on 2016/12/12 for freecmdSelectIn.
  */
-public class MyFileManager extends JPanel implements
+public class MyFileManager implements
         ApplicationComponent,
         ProjectComponent, Configurable {
     static String toolPath;
     static String prefixPath;
+    private JPanel panel;
     private JTextField textField1;
     private JTextField textField2;
     private final Storage storage = ServiceManager.getService(Storage.class);
 
-    public JTextField getTextField2() {
-        return textField2;
-    }
 
     public MyFileManager() {
 
@@ -37,6 +35,8 @@ public class MyFileManager extends JPanel implements
 
     @Override
     public void initComponent() {
+        toolPath = storage.getFmPath();
+        prefixPath = storage.getFmPath();
         createComponent();
     }
 
@@ -48,12 +48,9 @@ public class MyFileManager extends JPanel implements
     @Nullable
     @Override
     public JComponent createComponent() {
-        textField1.setText(storage.getFmPath() == null ? "FreeCommander.exe" : storage.getFmPath());
-        textField2.setText(storage.getPrefixPath());
-
-        toolPath = textField1.getText();
-        prefixPath = textField2.getText();
-        return this;
+        textField1.setText(toolPath == null ? "FreeCommander.exe" : toolPath);
+        textField2.setText(prefixPath);
+        return panel;
     }
 
     @Override
@@ -65,6 +62,8 @@ public class MyFileManager extends JPanel implements
     public void apply() throws ConfigurationException {
         toolPath = textField1.getText();
         storage.setFmPath(toolPath);
+        prefixPath = textField2.getText();
+        storage.setPrefixPath(prefixPath);
     }
 
     @Override
@@ -81,16 +80,16 @@ public class MyFileManager extends JPanel implements
                 MySelectInTarget target = new MySelectInTarget();
                 selectInManager.addTarget(target);
                 if (existTarget(selectInManager, target)) {
-                }else{
+                } else {
                     selectInManager.addTarget(target);
                 }
                 CompileOutputSelectInTarget compileOutputSelectInTarget = new CompileOutputSelectInTarget();
                 if (existTarget(selectInManager, compileOutputSelectInTarget)) {
-                }else{
-                selectInManager.addTarget(compileOutputSelectInTarget);
+                } else {
+                    selectInManager.addTarget(compileOutputSelectInTarget);
+                }
             }
         }
-    }
     }
 
     private boolean existTarget(SelectInManager selectInManager, SelectInTarget target) {
@@ -108,41 +107,24 @@ public class MyFileManager extends JPanel implements
         //todo_need
     }
 
-    public static String getToolPath() {
-        return toolPath;
-    }
 
     @Override
     @NotNull
     public String getComponentName() {
-        return "XXX";
+        return "My FileManager Component";
     }
 
-    public JTextField getTextField1() {
-        return textField1;
-    }
-
-    public void setTextField1(JTextField textField1) {
-        this.textField1 = textField1;
-    }
-
-    public void setTextField2(JTextField textField2) {
-        this.textField2 = textField2;
-    }
 
     @Nls
     @Override
     public String getDisplayName() {
-        return "FFF";
+        return "My FileManager";
     }
 
     @Nullable
     @Override
     public String getHelpTopic() {
-        return "YYY";
+        return "My FileManager HelpTopic";
     }
 
-    public static void setToolPath(String toolPath) {
-        MyFileManager.toolPath = toolPath;
-    }
 }
