@@ -19,4 +19,4 @@
 # Add a web explore tool window use javaFx webview
 ![web.png](doc/web.PNG)
 
-**_still encounter issue:when hide the tool window and javafx webview disappear, the webview is in a jfxpanel_**
+
