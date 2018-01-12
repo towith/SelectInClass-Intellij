@@ -5,7 +5,7 @@
 - select in targets shortcut : Alt + F1
 
 #  A web explore tool window use javaFx webview
-![web.png](doc/web.PNG)
+![web.png](doc/web2.PNG)
 
 #  Add Two Select In Target
 - **select corespondent class file from java source file**
