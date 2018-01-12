@@ -26,14 +26,10 @@ public class MyToolWindow implements ToolWindowFactory {
     private JFXPanel JFXPanel1;
     private JTextField textField1;
     ToolWindow toolWindow;
-    static WebEngine eng;
-    static Scene scene;
-    static Group root;
-    static VBox box;
-    static WebView webView;
+    WebEngine eng;
+    WebView webView;
 
     public MyToolWindow() {
-
     }
 
     @Override
@@ -46,37 +42,20 @@ public class MyToolWindow implements ToolWindowFactory {
     }
 
     private void drawContent() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                webView = new WebView();
-                eng = webView.getEngine();
-                root = new Group();
-                root.getChildren().add(webView);
-                scene = new Scene(root);
-                JFXPanel1.setScene(scene);
-                JFXPanel1.show();
-//                Stage stage = new Stage(StageStyle.UTILITY);
-//                stage.setScene(scene);
-//                stage.show();
-
-            }
-        });
-
+        JFXPanel1.show();
         textField1.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ENTER)
-                {
-                    JFXPanel1.revalidate();
-                    JFXPanel1.show();
-                    JFXPanel1.revalidate();
-
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     final String text = textField1.getText();
+                        webView = new WebView();
+                        JFXPanel1.setScene(new Scene(webView));
+                        eng = webView.getEngine();
                     if (text != null) {
                         Runnable runnable = new Runnable() {
                             @Override
                             public void run() {
+
                                 eng.load(text.trim());
                             }
                         };

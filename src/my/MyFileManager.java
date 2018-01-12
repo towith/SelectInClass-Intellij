@@ -36,7 +36,7 @@ public class MyFileManager implements
     @Override
     public void initComponent() {
         toolPath = storage.getFmPath();
-        prefixPath = storage.getFmPath();
+        prefixPath = storage.getPrefixPath();
         createComponent();
     }
 

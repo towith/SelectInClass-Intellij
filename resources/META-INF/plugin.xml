@@ -28,8 +28,8 @@
         <!-- Add your extensions here -->
         <applicationService serviceImplementation="my.Storage"/>
         <applicationConfigurable instance="my.MyFileManager"/>
-        <!--<projectConfigurable instance="my.ToolSetting"/>-->
-            <toolWindow id="bejoy" secondary="true" icon="" anchor="right"
+        <!--<projectConfigurable instance="my.MyFileManager"/>-->
+            <toolWindow id="bejoy" secondary="true"  anchor="right"
                         factoryClass="my.MyToolWindow"/>
 
     </extensions>
@@ -46,7 +46,7 @@
     </actions>
     <!--<application-components>-->
         <!--<component>-->
-            <!--<implementation-class>my.ToolSetting</implementation-class>-->
+            <!--<implementation-class>my.MyFileManager</implementation-class>-->
         <!--</component>-->
     <!--</application-components>-->
     <project-components>
