@@ -4,7 +4,7 @@
     <artifact type="jar" name="freecmdSelectIn:jar">
       <output-path>$PROJECT_DIR$/out/artifacts/freecmdSelectIn_jar</output-path>
       <root id="archive" name="freecmdSelectIn.jar">
-        <element id="module-output" name="freecmdSelectIn" />
+        <element id="module-output" name="SelectInAndBrowser" />
       </root>
     </artifact>
   </component>
@@ -332,7 +332,7 @@
   </component>
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/freecmdSelectIn.iml" filepath="$PROJECT_DIR$/freecmdSelectIn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SelectInAndBrowser.iml" filepath="$PROJECT_DIR$/SelectInAndBrowser.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" default="false" project-jdk-name="IntelliJ IDEA IU-173.4127.27 (1)" project-jdk-type="IDEA JDK">

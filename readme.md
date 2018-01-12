@@ -1,7 +1,11 @@
 # An intellij idea plugin 
+- A web browser in idea
 - **select corespondent class file from java source file**
 - add a select in target to open virtual path in your favourite file Manager
 - select in targets shortcut : Alt + F1
+
+# Add a web explore tool window use javaFx webview
+![web.png](doc/web.PNG)
 
 # Add Two Select In Target
 - **select corespondent class file from java source file**
@@ -17,7 +21,6 @@
 
 **_But it seems second select in target And the adding Action can be done by config external tools_**
  
-# Add a web explore tool window use javaFx webview
-![web.png](doc/web.PNG)
+
 
 
