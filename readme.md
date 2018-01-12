@@ -1,9 +1,10 @@
 # An idea plugin 
-- add a select in target to open virtual path in your favourite tool
+- **select corespondent class file from java source file**
+- add a select in target to open virtual path in your favourite file Manager
 - select in targets shortcut : Alt + F1
 
 # Add Two Select In Target
-- select corespondent class file from java source file
+- **select corespondent class file from java source file**
 ![selectClass.gif](doc/selectClass.gif)
 - open select  with your favourite file explorer 
 ![openFile.gif](doc/openFile.gif) 
