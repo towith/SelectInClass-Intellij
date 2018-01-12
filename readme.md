@@ -11,8 +11,9 @@
 > the file Manager path can be set in Other Setting->My FileManger
 ![fileManagerSetting.PNG](doc/fileManagerSetting.PNG)
 
-# Add an action open tow file , one is selected , the other is  open relative path under the prefix path in My FileManger Setting
-![openTwoFile.gif](doc/openFile.gif)
+# Add an action
+- open tow file , one is selected , the other is  open relative path under the prefix path in My FileManger Setting
+![openTwoFile.gif](doc/openTwoFile.gif)
 
 **_But it seems second select in target And the adding Action can be done by config external tools_**
  
