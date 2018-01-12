@@ -28,10 +28,8 @@ public class MyToolWindow implements ToolWindowFactory {
     private WebView webView;
     private Scene scene;
 
-
     public MyToolWindow() {
     }
-
 
     @Override
     public void init(ToolWindow window) {
@@ -47,7 +45,6 @@ public class MyToolWindow implements ToolWindowFactory {
                 scene = new Scene(webView);
                 eng = webView.getEngine();
                 JFXPanel1.setScene(scene);
-
             }
         });
     }
@@ -79,13 +76,5 @@ public class MyToolWindow implements ToolWindowFactory {
                 }
             }
         });
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JFXPanel1.setVisible(true);
-            }
-        });
     }
-
-
 }
