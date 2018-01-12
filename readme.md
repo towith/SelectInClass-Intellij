@@ -1,4 +1,4 @@
-# An idea plugin 
+# An intellij idea plugin 
 - **select corespondent class file from java source file**
 - add a select in target to open virtual path in your favourite file Manager
 - select in targets shortcut : Alt + F1
