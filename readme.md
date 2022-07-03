@@ -1,9 +1,12 @@
 # Add  Select In Target
 
-- **select corespondent class file from java source file**
-  ![selectClass.gif](doc/selectClass.gif)
+- select corespondent class file from java source file
+
+> ![selectClass.gif](doc/selectClass.gif)
+
 - open select with your favourite file explorer
-  ![openFile.gif](doc/openFile.gif)
+
+> ![openFile.gif](doc/openFile.gif)
 
 > the file Manager path can be set in Other Setting->My FileManger
 ![fileManagerSetting.PNG](doc/fileManagerSetting.PNG)
@@ -17,5 +20,5 @@
 
 # A web explore tool window use javaFx webview
 
-![web.png](doc/web2.PNG)
+> ![web.png](doc/web2.PNG)
 
