@@ -4,7 +4,7 @@
 
   > ![selectClass.gif](doc/selectClass.gif)
 
-- open select with your favourite file explorer
+- open select file with your favourite file explorer
 
   > ![openFile.gif](doc/openFile.gif)
 
