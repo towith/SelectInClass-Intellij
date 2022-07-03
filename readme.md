@@ -16,9 +16,6 @@
 - Add a select in target to select corespondent class file from java source file
 - Add a select in target to open virtual path in your favourite file Manager
   > select in targets shortcut in Intellij idea is `Alt + F1`
-- A web browser in idea
-
-# A web explore tool window use javaFx webview
-
-    > ![web.png](doc/web2.PNG)
+- A web browser in idea using javaFx webview
+  > ![web.png](doc/web2.PNG)
 
