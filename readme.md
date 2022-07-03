@@ -1,6 +1,6 @@
 # Add  Select In Target
 
-- **select corespondent class file from java source file**
+- select corespondent class file from java source file
   ![selectClass.gif](doc/selectClass.gif)
 - open select with your favourite file explorer
   ![openFile.gif](doc/openFile.gif)
